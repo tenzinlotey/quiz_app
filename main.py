@@ -292,6 +292,6 @@ def dashboard():
    return render_template('admin_dashboard.html',q=df_table,zip = zip)
 
 
-# if __name__ == '__main__':
-#    app.run(debug=True,port=4000)
+if __name__ == '__main__':
+   app.run(debug=True,port=4000)
 
