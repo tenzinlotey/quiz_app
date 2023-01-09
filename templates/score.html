@@ -1,0 +1,56 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <script src="/static/bootstrap.min.js"></script>
+        <title>Document</title>
+
+        <style>
+            body,
+            html {
+              height: 100%;
+              margin: 0;
+            }
+        
+            .bg {
+        
+              background-image:  url("/static/images/result.jpg");
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              height: 100vh;
+              background-attachment: fixed;
+            }
+        
+            .navbar-toggler:hover {
+              /* border:solid rgb(187, 132, 21); */
+              background-color: rgb(187, 132, 21);
+              -webkit-transition: background-color 0.8s, color 0.8s;
+              transition: background-color 0.8s, color 0.8s;
+            }
+        
+        
+          </style>
+    </head>
+    <body>
+        <div class ="bg"></div>
+        
+
+          <div class="position-absolute bottom-0 start-50 translate-middle" style="margin-bottom: 48px;">
+            <h1 class="score-head" style="color: #fff;">Your Score <style></style></h1>
+            <div class="score-circle text-center">
+                <h1 style="color: #fff;">{{sc}}</h1>
+                <a href="/quiz-start"> 
+                    <button class="btn btn-outline-success" id="btnxt"> Home </button>
+                    </a>
+            </div>
+            
+        </div>
+        
+
+    </body>
+    
+    </html>

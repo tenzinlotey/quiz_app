@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='images/style.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-image: url("/static/images/quiz.png");
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="admincont">
+
+    <div class="admin-sign-in sign-in">
+      <img style=" margin-bottom: 25px;
+      margin-left: 167px;" src="static/images/Wipro-logo.png" , width="100" height="65" ,alt="logo">
+      <h2>Sign In</h2>
+      <form action="/adminlogin" method="POST">
+        <label>
+          <span>Email Address</span>
+          <input type="email" name="email">
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password">
+        </label>
+       
+        <input type="submit" value="sign-in" name="sign-in">
+        <p class="forgot-pass">Forgot Password ?</p>
+        <div id="signin_flash_messages">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          {% for category,msg in messages %}
+          <span id="alert-{{ category }}" style="margin-top:20px;">{{msg}}</span>
+          <span aria-hidden="true" style="margin-left:10px;cursor: pointer;font-size: 24px;margin-top:20px;"
+            onclick="alert_close()"><b>&times;</b></span>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+        </div>
+      </form>
+    </div>
+    
+    
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+      }
+  
+      .bg {
+  
+        background-image: url("/static/images/quizhome.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        
+        background-attachment: fixed;
+      }
+  
+      .navbar-toggler:hover {
+        /* border:solid rgb(187, 132, 21); */
+        background-color: rgb(187, 132, 21);
+        -webkit-transition: background-color 0.8s, color 0.8s;
+        transition: background-color 0.8s, color 0.8s;
+      }
+  
+      .quiz-btn:hover {
+        background-color: rgb(126, 75, 197);
+        -webkit-transition: background-color 0.5s, color 0.5s;
+        transition: background-color 0.5s, color 0.5s;
+      }
+  
+
+
+        .quiz-box {
+            position: relative;
+            top: 120px;
+            margin-bottom: 20px;
+            padding: 10px;
+
+        }
+
+        .lock-img {
+            height: 134px;
+            width: 202px;
+            border-radius: 61px;
+        }
+
+        .box {
+            margin-top: 30px;
+
+        }
+
+        .card {
+            border-radius: 60px;
+            box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(114, 62, 62),
+                0.3em 0.3em 1em rgba(211, 185, 185, 0.3);
+        }
+
+
+    
+    </style>
+  </head>
+
+<body>
+    <div class="bg">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+  <nav class="navbar  fixed-top" style="background-color: #fff;border-radius: 50px;margin-top: 1%;">
+    <div class="container-fluid" style="margin-left: 19px;
+        margin-right: 15px">
+      <a class="navbar-brand">
+
+        <img src="{{url_for('static', filename='images/wipro.png')}}" width="30" height="30" alt="">
+
+        <img src="{{url_for('static', filename='images/hsbc.svg')}}" width="30" height="30" alt=""
+          style="margin-left: 8px;">
+        <!-- background-color: #a5a58b -->
+      </a>
+      <!-- <a class="navbar-brand" href="#"> <span class="badge text-bg-primary">Quizzz</span></a> -->
+      <button class="navbar-toggler" style="border-radius:20px;border: 1px solid rgb(192, 116, 75);" type="button"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon" style="width: 0.85em;
+            height: 0.95em;"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+        style="background-color: #d7d8db;
+          text-align: center;
+          width: 21%;
+          height: 41%;
+          border-radius: 20px;
+          margin-top: 12px;">
+        <div class="offcanvas-header">
+          <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Welcome to GCP Masters</h5> -->
+          <!-- <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+        </div>
+        <div class="offcanvas-body" style="margin-top: 13px;">
+
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+
+              <a class="nav-link">
+
+                <img src="{{url_for('static', filename='images/gcp_icon.svg')}}" width="104px" height="95px" alt="">
+
+              </a>
+
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./score">Result</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+
+  </nav>
+
+
+    <div class="container quiz-box">
+
+        <div class="row " >
+
+            <div class="col-lg-3 box col-md-4 col-sm-6" >
+                <div class="card border-success  bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                       
+                        <a href="/quiz-start1/1/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 1  </button>
+                        </a>
+                        {% if sc[0] >= 200 %}
+                        <h5 style="color: green;"><br>Score : {{sc[0]}}</h5>
+                        {% else %} 
+                        <h5 style="color: rgb(0, 0, 0);"><br>Score : {{sc[0]}}</h5>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 box col-md-4 col-sm-6">
+                <div class="card border-success  bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[0] >= 200 %}
+                      <a href="/quiz-start1/26/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 2</button>
+                            </a>
+                        
+                        {% else %} 
+                        <a >
+                          <button type="button" class="btn btn-outline-dark ">Quiz 2</button>
+                          </a>
+                        
+                        {% endif %}
+                        {% if sc[1] >= 200 %}   
+                        <h5 style="color: green;"><br>Score : {{sc[1]}}</h5>
+                        {% else %}
+                        <h5 style="color: rgb(0, 0, 0);"><br>Score : {{sc[1]}}</h5>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 box col-md-4 col-sm-6">
+                <div class="card border-success   bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[1] >= 200 %}
+                        <a href="/quiz-start1/51/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 3</button>
+                            </a>
+                      {% else %} 
+                        <a >
+                          <button type="button" class="btn btn-outline-dark ">Quiz 3</button>
+                            </a>  
+
+                      {% endif %}
+                      {% if sc[2] >= 200 %}   
+                        <h5 style="color: green;"><br>Score : {{sc[2]}}</h5>
+                      {% else %}
+                        <h5 style="color: rgb(0, 0, 0);"><br>Score : {{sc[2]}}</h5>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 box col-md-4 col-sm-6">
+                <div class="card border-success   bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[2] >= 200 %}
+                        <a href="/quiz-start1/76/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 4</button>
+                            </a>
+                            {% else %} 
+                            <a >
+                              <button type="button" class="btn btn-outline-dark ">Quiz 4</button>
+                                </a>  
+                       {% endif %}
+                       {% if sc[3] >= 200 %}   
+                           <h5 style="color: green;"><br>Score : {{sc[3]}}</h5>
+                       {% else %}
+                           <h5 style="color: rgb(0, 0, 0);"><br>Score : {{sc[3]}}</h5>
+                       {% endif %}
+          
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 box col-md-4 col-sm-6">
+                <div class="card border-success   bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[3] >= 200 %}
+                        <a href="/quiz-start1/101/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 5</button>
+                            </a>
+
+                        {% else %}
+                        <a>
+                          <button type="button" class="btn btn-outline-dark">Quiz-5</button>
+                        </a>
+                        {% endif %}
+                            <h5 style="color: black;"><br>Score : {{sc[4]}}</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 box col-md-4 col-sm-6">
+                <div class="card border-success   bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[4] >=200 %}
+                        <a href="/quiz-start1/126/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 6</button>
+                            </a>
+                          {% else %}
+                          <a>
+                            <button type="button" class="btn btn-outline-dark">Quiz-6</button>
+                          </a>
+                          {% endif %}
+                            <h5 style="color: black;"><br>Score : {{sc[5]}}</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 box col-md-4 col-sm-6">
+                <div class="card border-success   bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[5] >=200 %}
+                        <a href="/quiz-start1/151/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz-7</button>
+                            </a>
+                          {% else %}
+                          <a>
+                            <button type="button" class="btn btn-outline-dark"> Quiz-7</button>
+                          </a>
+                          {% endif %}
+                            <h5 style="color: black;"><br>Score : {{sc[6]}}</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 box col-md-4 col-sm-6">
+                <div class="card border-success   bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[6] >=200 %}
+                        <a href="/quiz-start1/176/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 8</button>
+                            </a>
+                          {% else %}
+                          <a >
+                            <button type="button" class="btn btn-outline-dark">Quiz 8</button>
+                          </a>
+                          {% endif %}
+                            <h5 style="color: black;"><br>Score : {{sc[7]}}</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 box col-md-4 col-sm-6">
+                <div class="card border-success   bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[7] >=200 %}
+                        <a href="/quiz-start1/201/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 9</button>
+                            </a>
+                            {% else %}
+                            <a >
+                              <button type="button" class="btn btn-outline-dark" >Quiz-9</button>
+                            </a>
+                            {% endif %}
+                            <h5 style="color: black;"><br>Score : {{sc[8]}}</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 box col-md-4 col-sm-6" >
+                <div class="card border-success   bg-transparent" style="max-width: 15rem;">
+                    <div class="card-body text-success text-center"  >
+                      {% if sc[8] >= 200 %}
+                        <a href="/quiz-start1/226/0">
+                            <button type="button" class="btn btn-outline-dark ">Quiz 10</button>
+                            </a>
+                            {% else %}
+                            <a>
+                              <button type="button" class="btn btn-outline-dark">
+                                Quiz 10
+                              </button>
+                            </a>
+                            {% endif %}
+                            <h5 style="color: black;"><br>Score : {{sc[9]}}</h5>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    </div>
+</body>
+
+</html>

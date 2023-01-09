@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head> 
+  <link rel = "stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<style>
+
+.bg { 
+    background-image: linear-gradient(#a3c2e2, rgb(220 225 232 / 25%)), url("/static/images/result.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+  }
+  .dash-circle{
+    color: aliceblue;
+    text-align: center;
+  }
+  .dash-head{
+    color:aliceblue;
+    padding: 20px;
+    margin-left:45%;
+  }
+  .table{
+    border-color: black;
+  }
+
+
+</style>
+  </head>
+
+  <body>
+    <div class="dash-main">
+    <div class ="bg">
+      <div class="navbar">
+        <h1  class="dash-head text-center">Dashboard</h1>
+        <button class="btn btn-outline-dark" style="margin-right: 3%;"><a href="/logout">Logout</a></button>
+      </div>
+    
+    <div class="dash-circle">
+        <table class="table container table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>S. No.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th colspan="10" >Score</th>
+          </thead>
+          <tbody>
+            {% for row in zip(q['Name'].values(),q['Email'].values(),q['score'].values()) %}
+            <tr>
+              <td>{{loop.index}}</td>
+              <td>{{row[0]}}</td>
+              <td>{{row[1]}}</td>
+              {% for r in row[2]  %}
+              <td >{{r}}
+                {% if r >=200 %}
+                <p style="color: green;">&nbsp (Pass)</p>
+                {% else %}
+                <p style="color: red;">&nbsp (Fail)</p>
+                {% endif %}
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+
+
+</body></html>
